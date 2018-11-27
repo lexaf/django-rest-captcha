@@ -24,7 +24,9 @@ DEFAULTS = {
     'FILTER_FUNCTION': 'rest_captcha.captcha.filter_default',
     'NOISE_FUNCTION': 'rest_captcha.captcha.noise_default',
     # for tests access: MASTER_CAPTCHA: {'secret_key: secret_value'}
-    'MASTER_CAPTCHA': {}
+    'MASTER_CAPTCHA': {},
+    'SEND_URL': False,
+    'STORAGE_PATH': os.path.join(settings.MEDIA_ROOT, 'captcha/')
 }
 
 # List of settings that may be in string import notation.

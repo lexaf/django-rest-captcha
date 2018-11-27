@@ -26,7 +26,8 @@ DEFAULTS = {
     # for tests access: MASTER_CAPTCHA: {'secret_key: secret_value'}
     'MASTER_CAPTCHA': {},
     'SEND_URL': False,
-    'STORAGE_PATH': os.path.join(settings.MEDIA_ROOT, 'captcha/')
+    'STORAGE_PATH': 'media/captcha',
+    'IMAGE_URL': '/media/captcha/'
 }
 
 # List of settings that may be in string import notation.

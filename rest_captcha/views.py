@@ -1,10 +1,12 @@
 import uuid
 import base64
 
+from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
 from rest_framework import views, response
 from django.core.cache import caches
 from .settings import api_settings
+from django.conf import settings
 from . import utils
 from . import captcha
 
@@ -25,8 +27,8 @@ class RestCaptchaView(views.APIView):
         image_bytes = captcha.generate_image(value)
         if api_settings.SEND_URL:
             fs = FileSystemStorage(location=api_settings.STORAGE_PATH)
-            filename = fs.save('{}.png'.format(key), image_bytes)
-            image_data = fs.url(filename)
+            filename = fs.save('{}.png'.format(key), ContentFile(image_bytes))
+            image_data = api_settings.IMAGE_URL + filename
             image_decode = 'url'
         else:
             image_data = base64.b64encode(image_bytes)

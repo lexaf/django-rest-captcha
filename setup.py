@@ -9,8 +9,8 @@ setup(name='django-rest-captcha',
       license='MIT',
       packages=['rest_captcha'],
       install_requires=[
-          'djangorestframework=^3.5',
+          'djangorestframework>=3.5',
           'django',
-          'Pillow=^4.1.1'
+          'Pillow>=4.1.1,<5'
       ],
       zip_safe=False)
